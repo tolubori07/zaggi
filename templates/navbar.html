@@ -1,0 +1,53 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark py-3 fixed-top">
+  <div class="container" style="display: block">
+    <img class="navimg" src="{% static 'images/zaggi.png' %}" alt="" />
+    <a href="{% url 'home' %}" class="navbar-brand">Zaggi- Way Up</a>
+    <div class="profile">
+      <h3>Hello {{request.user.username}} 👋 </h3>
+     
+      <a href="{%url 'logout'%}"
+        ><img
+          class="icons"
+          src="{% static 'images/box-arrow-left.svg' %}"
+          alt=""
+        />
+      </a>
+      <a href="{%url 'login'%}"
+        ><img class="icons" src="{% static 'images/person.svg' %}" alt="" />
+      </a>
+      <a href="{%url 'bag'%}"
+        ><img class="icons" src="{% static 'images/bag.svg' %}" alt="" />
+      </a>
+    </div>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navmenu"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navmenu">
+      <form method="get" action="{% url 'all' %}?q={{item.name}}">
+        <input
+          class="form-control me-2"
+          name="q"
+          value="{{search_string}}"
+          placeholder="Search..."
+          aria-label="Search"
+        />
+      </form>
+      <div class="list" style="display: block">
+        <ul class="navbar-nav ms-auto">
+          {% for type ,_ in types %}
+          <li class="nav-item">
+            <a href="{% url 'all' %}?q={{type}}" class="nav-link">{{type}}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+

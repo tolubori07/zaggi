@@ -1,0 +1,110 @@
+{% load static %}
+<footer class="footer">
+  <img
+    src="{% static '/images/uk_payment_fooer_strip_desk_1811.svg' %}"
+    alt=""
+    class="payment"
+  />
+
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button
+          class="accordion-button"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseOne"
+          aria-expanded="true"
+          aria-controls="collapseOne"
+        >
+          About Us
+        </button>
+      </h2>
+      <div
+        id="collapseOne"
+        class="accordion-collapse collapse"
+        data-bs-parent="#accordionExample"
+      >
+        <div class="accordion-body">
+          We're a brand that focuses on fashion and creativity so YOU can feel
+          like YOU! Our key values are:
+          <ul>
+            <li>
+              Sustainability: we're a brand that sustainably produces quality
+              products in Nigeria
+            </li>
+            <li>
+              Customer satisfaction: we're a brand that will commit our all
+              until our customers are satisfied with their purchase.
+            </li>
+            <li>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
+              distinctio provident dolorem laudantium quo unde voluptatum
+              inventore velit, explicabo alias cupiditate accusantium vero
+              repudiandae maxime tempore ipsam ad illo temporibus!
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseTwo"
+          aria-expanded="false"
+          aria-controls="collapseTwo"
+        >
+          Contact Us
+        </button>
+      </h2>
+      <div
+        id="collapseTwo"
+        class="accordion-collapse collapse"
+        data-bs-parent="#accordionExample"
+      >
+        <div class="accordion-body">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus
+          voluptas molestias ratione suscipit at perspiciatis autem nulla
+          eveniet recusandae incidunt magnam non sunt, soluta doloribus maiores
+          quam cumque obcaecati blanditiis itaque et rem. Animi ab eos explicabo
+          doloribus repellendus amet.
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseThree"
+          aria-expanded="false"
+          aria-controls="collapseThree"
+        >
+          Follow zaggi_wears
+        </button>
+      </h2>
+      <div
+        id="collapseThree"
+        class="accordion-collapse collapse"
+        data-bs-parent="#accordionExample"
+      >
+        <div class="accordion-body">
+          <div class="connect" style="display: flex; align-items: baseline">
+            <a href="https://www.instagram.com/zaggi_wears/?hl=en"
+              ><img src="{% static '/images/instagram.svg' %}" />instagram</a
+            >
+            <a href="https://www.facebook.com/ZAGGIWEARS"
+              ><img src="{% static '/images/facebook.svg' %}" />Facebook</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,26 @@
+{% extends 'main.html' %} {% load static %} {% block content %}
+<main>
+  <div class="container text-center">
+    <div class="row gy-3">
+      {% for items in item %}
+      <div class="col-sm">
+        <div class="card" style="width: 18rem; height: 30rem">
+          <img src=/static{{items.image1.url}} class="card-img-top"
+          alt="{{items.description}}">
+          <div class="card-body">
+            <h5 class="card-title text-truncate">{{items.name}}</h5>
+
+            <p class="card-text">£{{items.price}}</p>
+            <a href="{% url 'view' items.id %}"
+              ><button class="btn">View</button></a
+            >
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+    </div>
+  </div>
+</main>
+
+{% endblock content %}

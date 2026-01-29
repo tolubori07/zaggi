@@ -1,0 +1,46 @@
+{% extends 'main.html' %} 
+{% load static %} 
+{% block content %}
+<main>
+  {% if page == 'login' %}
+<div class="form">
+    <form action="" method="post" class="form">
+        {%csrf_token%}
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+        </div>
+        <button type="submit" class="btn">Login</button>
+        {% if messages %}
+
+    {% for message in messages %}
+    <div class="alert alert-danger messages" role="alert">
+      {{ message }}
+    </div>
+    
+    {% endfor %}
+</ul>
+{% endif %}
+<p>Don't have an account?<a href="{%url 'signup'%}">Sign-up</a></p>
+    </form>
+</div>
+{% else %}
+<div class="form">
+<form action="" method = "POST" class="form">
+  {% csrf_token %}
+{% for field in form %}
+<label>{{field.label}}</label>
+{{field}}
+{% endfor %}
+<button type="submit" class="btn">Register</button>
+<p>Signed up already<a href="{%url 'login'%}">Login</a></p>
+</form>
+</div>
+{% endif %}
+</main>
+{% endblock content%}

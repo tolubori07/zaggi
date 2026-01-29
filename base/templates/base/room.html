@@ -1,0 +1,124 @@
+{% extends 'main.html' %} {% block content %}
+<!--if item has more than one image-->
+{% if items.image2 %}
+<div class="card m-5" style="width: 50%;">
+  <div id="carouselExample" class="carousel slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="item--img  card-img-top" src="/static{{items.image1.url}}" alt="" />
+      </div>
+      <div class="carousel-item">
+        <img src="/static{{items.image2.url}}" class="item--img card-img-top" alt="...">
+      </div>
+    </div>
+  <div class="card-body">
+      <h1>{{items.name}}</h1>
+      <p class="description">{{items.description}}</p>
+      <p class="description">£{{items.price}}</p>
+      <form method="POST" action="">
+          {% csrf_token %}
+      <a href=""><button method = "post" class="btn" id="LiveToastBtn" type = "submit" name = "add">Add to bag</button></a>
+      </form>
+  </div>
+  <button class="carousel-control-prev"  type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" style="background-color:black;" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" style="background-color:black;" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+</div>
+{% elif items.image3 %}
+<div class="card m-5" style="width: 50%;">
+  <div id="carouselExample" class="carousel slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="item--img  card-img-top" src="/static{{items.image1.url}}" alt="{{items.description}}" />
+      </div>
+      <div class="carousel-item">
+        <img src="/static{{items.image2.url}}" class="item--img card-img-top" alt="{{items.description}}">
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="/static{{items.image3.url}}" class="item--img card-img-top" alt="{{items.description}}">
+    </div>
+  </div>
+  <div class="card-body">
+      <h1>{{items.name}}</h1>
+      <p class="description">{{items.description}}</p>
+      <p class="description">£{{items.price}}</p>
+      <form method="POST" action="">
+          {% csrf_token %}
+      <a href=""><button method = "post" class="btn" id="LiveToastBtn" type = "submit" name = "add">Add to bag</button></a>
+      </form>
+  </div>
+  <button class="carousel-control-prev"  type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" style="background-color:black;" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" style="background-color:black;" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+</div>
+
+{% else %}
+<div class="card m-5" style="width: 50%;">
+  <img class="item--img" src="/static{{items.image1.url}}" alt="" />
+  <div class="card-body">
+      <h1>{{items.name}}</h1>
+      <p class="description">{{items.description}}</p>
+      <p class="description">£{{items.price}}</p>
+      <form method="POST" action="">
+          {% csrf_token %}
+      <a href=""><button method = "post" class="btn" id="LiveToastBtn" type = "submit" name = "add">Add to bag</button></a>
+      </form>
+  </div>
+</div>
+{% endif %}
+
+
+<!--message -->
+  {% for message in messages %}
+  {% if messages.error %}
+  <div class="alert alert-danger messages" role="alert">
+    {{ message }}
+  </div>
+  {% else %}
+  <div class="alert alert-success" role="alert">
+   {{message}}
+  </div>
+  {% endif %}
+
+    {% endfor %}
+  {% endblock content %}
+
+
+
+
+
+
+
+
+
+
+  
+    
+  
+
+
+
+

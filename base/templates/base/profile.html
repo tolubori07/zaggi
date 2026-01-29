@@ -1,0 +1,6 @@
+{% extends 'main.html' %} 
+{% load static %} 
+{% block content %}
+
+<a href="{% url 'logout' %}"><button class="btn"><img src="{% static '/images/box-arrow-right.svg' %}" alt="">Logout</button></a>
+{% endblock content%}
